@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { MatDialogRef } from '@angular/material/dialog';
+import { UserRegistrationService } from '../fetch-api-data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-user-login',
@@ -7,9 +11,29 @@ import { Component, OnInit } from '@angular/core';
 })
 export class UserLoginComponent implements OnInit {
 
-  constructor() { }
+  @Input() userData = { Username: '', Password: '' };
 
-  ngOnInit(): void {
-  }
+  constructor
+    (
+      public fetchApiData: UserRegistrationService,
+      public dialogRef: MatDialogRef<UserLoginComponent>,
+      public snackBar: MatSnackBar
+    ) {}
+
+    ngOnInit(): void {
+    }
+
+    userLogin(): void {
+      this.fetchApiData.userLogin(this.userData).subscribe((result) => {
+        this.dialogRef.close();
+        this.snackBar.open(result, 'ok', {
+          duration: 2000
+        });
+      }, (result) => {
+        this.snackBar.open(result, 'ok', {
+          duration: 2000
+        })
+      })
+    }
 
 }
