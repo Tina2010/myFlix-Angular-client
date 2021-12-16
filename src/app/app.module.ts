@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
-    UserRegistrationFormComponent
+    UserRegistrationFormComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
