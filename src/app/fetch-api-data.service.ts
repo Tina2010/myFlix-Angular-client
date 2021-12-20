@@ -5,11 +5,22 @@ import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http
 import { Observable, throwError } from 'rxjs';
 import { map } from 'rxjs/operators';
 
+// adding token check for user authorization
+const token = localStorage.getItem('token');
+const headers = {
+  headers: new HttpHeaders({
+    Authorization: 'Bearer ' + token,
+  }),
+};
+
+
 //Declaring the api url that will provide data for the client app
 const apiUrl = 'https://obscure-castle-33842.herokuapp.com/';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class UserRegistrationService {
   // Inject the HttpClient module to the constructor params
  // This will provide HttpClient to the entire class, making it available via this.http
@@ -36,20 +47,18 @@ export class UserRegistrationService {
 
   /* --------------------------------------------------------- */
  // Making the api call for the Get all movies endpoint
- public showAllMovies(movieDetails: any): Observable<any> {
-  console.log(movieDetails);
-  return this.http.get(apiUrl + 'movies', movieDetails).pipe(
+ public showAllMovies(): Observable<any> {
+  return this.http.get(apiUrl + 'movies', headers).pipe(
   catchError(this.handleError)
   );
 }
 
   /* --------------------------------------------------------- */
  // Making the api call for the Get one movie endpoint
- public showOneMovie(movieDetails: any): Observable<any> {
-  console.log(movieDetails);
-  return this.http.get(apiUrl + 'movies', movieDetails).pipe(
-  catchError(this.handleError)
-  );
+ public showOneMovie(movieID: string): Observable<any> {
+  return this.http.get(apiUrl + 'movies' + movieID, headers).pipe(
+    catchError(this.handleError)
+    );
 }
 
    /* --------------------------------------------------------- */
