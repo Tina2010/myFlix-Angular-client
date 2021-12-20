@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserRegistrationFormComponent } from './user-registration-form/user-registration-form.component';
 import { UserLoginComponent } from './user-login/user-login.component';
+import { MovieCardComponent } from './movie-card/movie-card.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -22,7 +23,8 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     AppComponent,
     UserRegistrationFormComponent,
-    UserLoginComponent
+    UserLoginComponent,
+    MovieCardComponent
   ],
   imports: [
     BrowserModule,
