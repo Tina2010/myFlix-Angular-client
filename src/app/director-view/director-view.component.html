@@ -1,1 +1,11 @@
-<p>director-view works!</p>
+<div class="director-dialog-wrapper">
+  <div class="director-title-close">
+    <h2>{{ data.name }}
+      <button mat-icon-button color="dark" [mat-dialog-close]="true">
+        <mat-icon class="close">close</mat-icon>
+      </button>
+    </h2>
+    </div>
+    <h3>Biography</h3>
+    <p>{{ data.bio }}</p>
+  </div>

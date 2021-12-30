@@ -1,1 +1,10 @@
-<p>genre-view works!</p>
+<div class="genre-dialog-wrapper">
+  <div class="genre-title-close">
+    <h2>{{ data.name }}
+      <button mat-icon-button color="dark" [mat-dialog-close]="true">
+        <mat-icon class="close">close</mat-icon>
+      </button>
+    </h2>
+    </div>
+    <p>{{ data.description }}</p>
+  </div>
