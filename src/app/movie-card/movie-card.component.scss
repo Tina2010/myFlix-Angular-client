@@ -1,0 +1,95 @@
+  .movies-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  button {
+    margin: 10px;
+    background-color: #274b24;
+    color:white;
+  }
+
+  button:hover {
+    background-color: fade-out($color: #274b24, $amount: 0.15);
+  }
+
+  .favorites {
+    margin: initial;
+    background-color: initial;
+    color:initial;
+  }
+
+  .favorites:hover {
+    background-color: initial;
+  }
+
+
+  #genre, #director {
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.11); /* Black background with opacity */
+    cursor: pointer; /* Add a pointer on hover */
+  }
+
+  .mat-card-actions, .mat-card-subtitle, .mat-card-content {
+    margin: 0;
+  }
+
+  .mat-card-actions {
+    text-align: center;
+  }
+
+  .mat-card-content {
+    text-align: center;
+  }
+
+  .dialog {
+    background-color: white;
+    display: flex;
+  }
+
+  a,
+  a:visited,
+  a:hover {
+    color: #1976d2;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: #125699;
+  }
+
+  .mat-card{
+    box-shadow: none;
+    justify-self: center;
+  }
+
+@media (max-width: 650px) {
+  .movies-wrapper {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (min-width: 650px) and (max-width: 1000px) {
+  .movies-wrapper {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1000px) and (max-width: 1300px) {
+  .movies-wrapper {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (min-width: 1300px) {
+  .movies-wrapper {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
