@@ -36,7 +36,7 @@ export class UserRegistrationService {
   /* --------------------------------------------------------- */
  // Making the api call for the User registration endpoint
   public userRegistration(userDetails: any): Observable<any> {
-    console.log(userDetails);
+    // console.log(userDetails);
     return this.http.post(apiUrl + 'users', userDetails).pipe(
     catchError(this.handleError)
     );
@@ -45,7 +45,7 @@ export class UserRegistrationService {
   /* --------------------------------------------------------- */
  // Making the api call for the User login endpoint
  public userLogin(userDetails: any): Observable<any> {
-  console.log(userDetails);
+  // console.log(userDetails);
   return this.http.post(apiUrl + 'login', userDetails).pipe(
   catchError(this.handleError)
   );
@@ -125,7 +125,6 @@ export class UserRegistrationService {
 
     /* --------------------------------------------------------- */
  // Making the api call for the Get favourite movies for a user endpoint
- // ATTENTION: I didnt use a path, but a specific call to get the favorite movies for one user: https://github.com/Tina2010/myFlix-Client/blob/main/src/components/profile-view/profile-view.jsx#L35
  public showFavMovieOfSingleUser(username: string): Observable<any> {
   const token = localStorage.getItem('token');
   const response = this.http.get(
@@ -147,7 +146,7 @@ export class UserRegistrationService {
  public addMovieToFavorites(movieId: any): Observable<any> {
   const username = localStorage.getItem('user');
   const token = localStorage.getItem('token');
-  console.log(apiUrl + `users/${username}/movies/${movieId}`);
+  // console.log(apiUrl + `users/${username}/movies/${movieId}`);
   return this.http.post(apiUrl + `users/${username}/movies/${movieId}`, {},
     {
       headers: new HttpHeaders(
