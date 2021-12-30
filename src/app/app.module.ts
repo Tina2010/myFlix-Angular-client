@@ -9,6 +9,12 @@ import { UserLoginComponent } from './user-login/user-login.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 import { WelcomePageComponent } from './welcome-page/welcome-page.component';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ToolbarComponent } from './toolbar/toolbar.component';
+import { UpdateUserComponent } from './update-user/update-user.component';
+import { GenreViewComponent } from './genre-view/genre-view.component';
+import { DirectorViewComponent } from './director-view/director-view.component';
+import { DeregisterUserComponent } from './deregister-user/deregister-user.component';
+import { SynopsisViewComponent } from './synopsis-view/synopsis-view.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -23,11 +29,15 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const appRoutes: Routes = [
   { path: 'welcome', component: WelcomePageComponent },
   { path: 'movies', component: MovieCardComponent },
-  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' },
+  { path: 'users', component: MovieCardComponent },
+  { path: 'profile', component: UserProfileComponent },
+  { path: '', redirectTo: 'welcome', pathMatch: 'prefix' }
 ];
 @NgModule({
   declarations: [
@@ -36,7 +46,13 @@ const appRoutes: Routes = [
     UserLoginComponent,
     MovieCardComponent,
     WelcomePageComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ToolbarComponent,
+    UpdateUserComponent,
+    GenreViewComponent,
+    DirectorViewComponent,
+    DeregisterUserComponent,
+    SynopsisViewComponent
   ],
   imports: [
     BrowserModule,
@@ -51,9 +67,11 @@ const appRoutes: Routes = [
     MatSnackBarModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
-    MatIconModule
+    MatIconModule,
+    MatToolbarModule,
+    MatExpansionModule
   ],
-  providers: [],
+  providers: [MovieCardComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
