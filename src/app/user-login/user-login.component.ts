@@ -28,15 +28,16 @@ export class UserLoginComponent implements OnInit {
     userLogin(): void {
       this.fetchApiData.userLogin(this.userData).subscribe((result) => {
         localStorage.setItem('token', result.token);
+        localStorage.setItem('user', result.user.Username);
+        console.log(result.token);
         this.dialogRef.close();
-        this.snackBar.open(result, 'ok', {
-          duration: 2000
+        this.router.navigate(['movies']).then(() => {
+          window.location.reload();
         });
-        this.router.navigate(['movies']);
       }, (result) => {
         this.snackBar.open(result, 'ok', {
-          duration: 2000
-        })
+          duration: 5000
+        });
       })
     }
 
