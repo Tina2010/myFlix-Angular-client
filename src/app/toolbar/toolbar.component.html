@@ -1,1 +1,47 @@
-<p>toolbar works!</p>
+<mat-toolbar>
+        <a href="/movies" *ngIf="router.url != '/welcome'">
+            <span>myFlix</span>
+        </a>
+    <span class="example-spacer"></span>
+
+    <ng-container *ngIf="router.url === '/movies'">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with perm-identiy-icon">
+            <a href="/profile">
+            <mat-icon>perm_identity</mat-icon>
+            </a>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with perm-identiy-icon"
+        (click)="logOutUser()">
+            <a href="/">
+                <mat-icon>exit_to_app</mat-icon>
+            </a>
+        </button>
+    </ng-container>
+    <ng-container *ngIf="router.url === '/favorites'">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with perm-identiy-icon">
+            <a href="/profile">
+            <mat-icon>perm_identity</mat-icon>
+            </a>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with perm-identiy-icon"
+        (click)="logOutUser()">
+            <a href="/">
+                <mat-icon>exit_to_app</mat-icon>
+            </a>
+        </button>
+    </ng-container>
+    <ng-container *ngIf="router.url === '/profile'">
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with perm-identiy-icon">
+            <a href="/profile">
+            <mat-icon>perm_identity</mat-icon>
+            </a>
+        </button>
+        <button mat-icon-button class="example-icon" aria-label="Example icon-button with perm-identiy-icon"
+        (click)="logOutUser()">
+            <a href="/">
+                <mat-icon>exit_to_app</mat-icon>
+            </a>
+        </button>
+    </ng-container>
+
+  </mat-toolbar>
