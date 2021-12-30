@@ -1,1 +1,38 @@
-<p>user-profile works!</p>
+<div class="main-container">
+  <mat-card>
+    <mat-card-title>Personal Data</mat-card-title>
+    <mat-card-content class="info">
+        <span>Username: </span> {{ user.Username }}
+        <br>
+        <span>Email: </span>{{ user.Email }}
+        <br>
+        <span>Birthday: </span>{{ user.Birthday | date: "MM/dd/yyyy":"UTC" }}
+        <br>
+        <span>Password: </span>****
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-raised-button class="button-edit" (click)="openEditUserProfileDialog()">
+          Edit user info
+        </button>
+        <button mat-raised-button class="button-delete" (click)="deregisterUser()">
+          Delete Account
+        </button>
+      </mat-card-actions>
+  </mat-card> 
+  <div class="favorite-container">
+   <div class="mat-card-title-favorites">Favorite Movies</div>
+    <mat-card *ngFor="let movie of favoriteMovies;" class="favorites">
+      <mat-card-actions>
+        <mat-icon matTooltip="Remove movie from favorites" class="remove-icon" aria-label="Remove Movie from Favorite"
+          (click)="removeFavoriteMovie(movie._id, movie.Title)">
+          delete_outline
+        </mat-icon>
+      </mat-card-actions>
+      <mat-card-header>
+        <mat-card-title class="title">{{movie.Title}}</mat-card-title>
+      </mat-card-header>
+      <img class="image" src={{movie.ImagePath}} alt={{movie.Title}} />
+    </mat-card>
+  </div>
+</div>
+  
