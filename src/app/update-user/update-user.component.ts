@@ -1,8 +1,13 @@
+/**
+ * This is the doc comment for ./update-user.component
+ *
+ * @module UpdateUser-Component
+ */
+
 import { Component, OnInit, Input, Inject } from '@angular/core';
 import { UserRegistrationService } from '../fetch-api-data.service';
 import { MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-update-user',
@@ -22,6 +27,9 @@ export class UpdateUserComponent implements OnInit {
    ngOnInit(): void {
    }
  
+/**
+ * The user is able to update their personal data.
+ */
    editUserInfo(): void {
      this.fetchUserData.updateUser(this.userData).subscribe(
        (res) => {
@@ -32,7 +40,7 @@ export class UpdateUserComponent implements OnInit {
          });
        },
        (res) => {
-         console.log(res);
+         // console.log(res);
          this.snackBar.open(res, 'Ok', {
            duration: 2000,
          });

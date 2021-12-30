@@ -1,3 +1,8 @@
+/** 
+ * @ignore
+ * @module
+ */
+
 import { Component } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';

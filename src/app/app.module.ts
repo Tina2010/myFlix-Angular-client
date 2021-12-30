@@ -1,3 +1,8 @@
+/** 
+ * @ignore
+ * @module
+ */
+
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -13,7 +18,6 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
 import { UpdateUserComponent } from './update-user/update-user.component';
 import { GenreViewComponent } from './genre-view/genre-view.component';
 import { DirectorViewComponent } from './director-view/director-view.component';
-import { DeregisterUserComponent } from './deregister-user/deregister-user.component';
 import { SynopsisViewComponent } from './synopsis-view/synopsis-view.component';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -51,7 +55,6 @@ const appRoutes: Routes = [
     UpdateUserComponent,
     GenreViewComponent,
     DirectorViewComponent,
-    DeregisterUserComponent,
     SynopsisViewComponent
   ],
   imports: [
@@ -74,4 +77,5 @@ const appRoutes: Routes = [
   providers: [MovieCardComponent],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -1,3 +1,9 @@
+/**
+ * This is the doc comment for /fetch-api-data.service.ts
+ *
+ * @module Fetch-Api-Data-Service
+ */
+
 import { Injectable } from '@angular/core';
 
 import { catchError } from 'rxjs/operators';

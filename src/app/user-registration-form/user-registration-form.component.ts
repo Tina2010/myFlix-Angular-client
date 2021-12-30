@@ -1,3 +1,9 @@
+/**
+ * This is the doc comment for ./user-registration-form.component
+ *
+ * @module UserRegistrationForm-Component
+ */
+
 import { Component, OnInit, Input } from '@angular/core';
 
 import { MatDialogRef } from '@angular/material/dialog';
@@ -24,9 +30,12 @@ export class UserRegistrationFormComponent implements OnInit {
   ngOnInit(): void {
   }
 
+/**
+ * User is able to register.
+ */
   registerUser(): void {
     this.fetchApiData.userRegistration(this.userData).subscribe((result) => {
-      console.log(result)
+      // console.log(result)
       this.dialogRef.close();
       this.snackBar.open('User registration successful', 'Ok', {
         duration: 2000

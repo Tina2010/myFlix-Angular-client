@@ -1,3 +1,9 @@
+/**
+ * This is the doc comment for ./genre-view.component
+ *
+ * @module GenreView-Component
+ */
+
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -8,6 +14,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class GenreViewComponent implements OnInit {
 
+/**
+ * The genres name and description is forwarded to the genre-dialog, when "Genre" is clicked on the movie-card.
+ */
   constructor(
     @Inject(MAT_DIALOG_DATA)
     public data: {

@@ -1,3 +1,9 @@
+/**
+ * This is the doc comment for ./user-profile.component
+ *
+ * @module UserProfile-Component
+ */
+
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { UserRegistrationService } from '../fetch-api-data.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -30,15 +36,21 @@ export class UserProfileComponent implements OnInit {
     this.getUser();
   }
 
+/**
+ * Gets a single user to display their data on their profile.
+ */
   getUser(): void {
     let username = localStorage.getItem('user');
     this.fetchApiData.showSingleUser(username).subscribe((res: any) => {
       this.user = res;
       this.getFavoriteMovies();
-      console.log(res);
+      // console.log(res);
     });
   }
 
+/**
+ * Gets the users favorite movies to display them beneath their personal data in the profile.
+ */
   getFavoriteMovies(): void {
     this.fetchApiData.showAllMovies().subscribe((res: any) => {
       this.movies = res;
@@ -48,12 +60,15 @@ export class UserProfileComponent implements OnInit {
         }
       });
     });
-    console.log(this.favoriteMovies);
+    // console.log(this.favoriteMovies);
   }
 
+/**
+ * Takes away favouring of a movie.
+ */
   removeFavoriteMovie(id: string, Title: string): void {
     this.fetchApiData.removeMovieFromFavorites(id).subscribe((resp) => {
-      console.log(resp);
+      // console.log(resp);
       this.snackBar.open(
         `${Title} has been removed from your favorites!`,
         'OK',
@@ -67,6 +82,9 @@ export class UserProfileComponent implements OnInit {
     });
   }
 
+/**
+ * User is able to de-register. This removes the 'user' and 'token' from the localstorage.
+ */
   deregisterUser(): void {
     this.fetchApiData.deleteUser().subscribe(
       () => {
@@ -88,6 +106,9 @@ export class UserProfileComponent implements OnInit {
     );
   }
 
+/**
+ * Opens the update dialog for a user to change their personal data.
+ */
   openEditUserProfileDialog(): void {
     this.dialog.open(UpdateUserComponent, {
       width: 'max-content'

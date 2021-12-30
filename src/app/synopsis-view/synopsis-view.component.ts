@@ -1,3 +1,9 @@
+/**
+ * This is the doc comment for ./synopsis-view.component
+ *
+ * @module SynopsisView-Component
+ */
+
 import { Component, OnInit, Inject } from '@angular/core';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -8,6 +14,9 @@ import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 })
 export class SynopsisViewComponent implements OnInit {
 
+/**
+ * The title and description of a movie is forwarded to the synopsis-dialog, when "Synopsis" is clicked on the movie-card.
+ */
   constructor(
 
     @Inject(MAT_DIALOG_DATA)

@@ -1,3 +1,9 @@
+/**
+ * This is the doc comment for ./movie-card.component
+ *
+ * @module MovieCard-Component
+ */
+
 import { Component, OnInit } from '@angular/core';
 import { UserRegistrationService } from '../fetch-api-data.service';
 import { Router } from '@angular/router';
@@ -32,6 +38,9 @@ export class MovieCardComponent implements OnInit {
     this.getUserFavs();
   }
 
+/**
+ * Call all movies from the myFlix API.
+ */
   getMovies(): void {
     this.fetchApiData.showAllMovies().subscribe((res: any) => {
       this.movies = res;
@@ -39,6 +48,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+/**
+  * Opens the genre dialog
+ */  
   openGenreDialog(name: string, description: string): void {
     this.dialog.open(GenreViewComponent, {
       data: { name, description },
@@ -46,6 +58,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+/**
+  * Opens the director dialog
+*/ 
   openDirectorDialog(
     name: string,
     bio: string
@@ -59,12 +74,21 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+/**
+  * Opens the synopsis dialog
+*/ 
   openSynopsisDialog(title: string, description: string): void {
     this.dialog.open(SynopsisViewComponent, {
       data: { title, description},
     })
   }
 
+/**
+  * Pull the FavoriteMovies of one user to display an empty or filled heart, wether the like a movie or not.
+  * 
+  * @const user Provide user for the API call.
+  * @returns A list of the users favorite movies.
+*/ 
   getUserFavs(): void {
     const user = localStorage.getItem('user');
     this.fetchApiData.showSingleUser(user).subscribe((res: any) => {
@@ -73,8 +97,11 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+/**
+  * User is able to add a movie to their favorites.
+*/ 
   addToFavs(movieId: any,) {
-    console.log(movieId);
+    // console.log(movieId);
     this.fetchApiData.addMovieToFavorites(movieId).subscribe((resp: any) => {
 
       console.log(resp);
@@ -85,10 +112,13 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+/**
+  * User is able to remove a movie from their favorites.
+*/ 
   removeFavoriteMovie(id: string, Title: string): void {
     this.fetchApiData.removeMovieFromFavorites(id).subscribe((resp: any) => {
 
-      console.log(resp);
+      // console.log(resp);
       this.snackBar.open(`The selected movie has been removed from your favorites.`, 'OK', {
         duration: 3000,
       });
@@ -96,6 +126,9 @@ export class MovieCardComponent implements OnInit {
     });
   }
 
+/**
+  * Update the heart icon on the movie card to be checked, if a movie is a favorite or not.
+*/ 
   setFavoriteStatus(id: any): any {
     if (this.favoriteMovies.includes(id)) {
       return true;
