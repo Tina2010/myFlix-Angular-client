@@ -1,5 +1,5 @@
 <mat-toolbar>
-        <a href="/movies" *ngIf="router.url != '/welcome'">
+        <a href="movies" *ngIf="router.url != 'welcome'">
             <span>myFlix</span>
         </a>
     <span class="example-spacer"></span>
@@ -12,7 +12,7 @@
         </button>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with perm-identiy-icon"
         (click)="logOutUser()">
-            <a href="/">
+            <a href="welcome">
                 <mat-icon>exit_to_app</mat-icon>
             </a>
         </button>
@@ -25,7 +25,7 @@
         </button>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with perm-identiy-icon"
         (click)="logOutUser()">
-            <a href="/">
+            <a href="welcome">
                 <mat-icon>exit_to_app</mat-icon>
             </a>
         </button>
@@ -38,7 +38,7 @@
         </button>
         <button mat-icon-button class="example-icon" aria-label="Example icon-button with perm-identiy-icon"
         (click)="logOutUser()">
-            <a href="/">
+            <a href="welcome">
                 <mat-icon>exit_to_app</mat-icon>
             </a>
         </button>
