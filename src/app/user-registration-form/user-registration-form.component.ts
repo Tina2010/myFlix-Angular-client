@@ -32,7 +32,7 @@ export class UserRegistrationFormComponent implements OnInit {
         duration: 2000
       });
     }, (result) => {
-      this.snackBar.open('User registration successful', 'Ok', {
+      this.snackBar.open('Something went wrong, please try again!', 'Ok', {
         duration: 2000
       });
     });
