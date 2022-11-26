@@ -1,3 +1,5 @@
+Archived project: This project will not be maintained anymore.
+
 # myFlix - Angular-Client
 
 A single-page, responsive movie app built with Angular, with routing and several
